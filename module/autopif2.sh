@@ -177,7 +177,7 @@ if [ -f "$MIGRATE" ]; then
   cat custom.pif.json;
 fi;
 
-if [ "$DIR" = /data/adb/modules/playintegrityfix/autopif2 ]; then
+# if [ "$DIR" = /data/adb/modules/playintegrityfix/autopif2 ]; then
   if [ -f /data/adb/modules/playintegrityfix/migrate.sh ]; then
     NEWNAME="custom.pif.json";
   else
@@ -188,7 +188,7 @@ if [ "$DIR" = /data/adb/modules/playintegrityfix/autopif2 ]; then
     mv -fv ../$NEWNAME ../$NEWNAME.bak;
   fi;
   item "Installing new json ...";
-  cp -fv $NEWNAME ..;
+  cp -fv "$NEWNAME" /data/adb/modules/playintegrityfix/
   TS_SECPAT=/data/adb/tricky_store/security_patch.txt;
   if [ -f "$TS_SECPAT" ]; then
     item "Updating Tricky Store security_patch.txt ...";
@@ -201,4 +201,4 @@ if [ "$DIR" = /data/adb/modules/playintegrityfix/autopif2 ]; then
     item "Killing any running GMS DroidGuard/Play Store processes ...";
     sh /data/adb/modules/playintegrityfix/killpi.sh 2>&1 || true;
   fi;
-fi;
+# fi;
